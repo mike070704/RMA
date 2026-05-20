@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bortea</title>
+    <title>RMA</title>
     <style>
         * {
             margin: 0;
@@ -11,6 +11,62 @@
         body {
             font-family: Arial, sans-serif;
             background-color: white;
+            width: 100dvw;
+            height: 100dvh;
+            margin: 0px;
+            padding: 10px;
+        }
+
+        .flashsale {
+            height: 50dvh;
+            width: 30dvw;
+            background-color: white;
+            border-radius: 10px ;
+            box-shadow: 5px 5px 30px grey;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .judulflashsale {
+            flex: 1;
+            text-align: center;
+            background-color: orangered;
+            color: white;
+            padding: 20px;
+            font-family:sans-serif;
+            border-radius: 10px;
+        }
+
+        .boxtombol {
+            flex: 2;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            background-color: orangered;
+            border: transparent;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+            font-weight: bold;
+            border-radius: 20px;
+            animation: animasitombolbesar alternate infinite 1.5s;
+        }
+
+        @keyframes animasitombolbesar {
+            from {
+                width: 15dvw;
+                height: 6dvh;
+                font-size: small;
+            }
+            to {
+                font-size: large;
+                width: 20dvw;
+                height: 12dvh;
+            }
         }
 
         .navbar {
@@ -299,9 +355,20 @@
     </style>
 </head>
 <body>
+<section class="flashsale">
+<div class="judulflashsale">
+<h2>FLASH SALE 5.5</h2>
+<div id="timerpromo" style="font-size: 2rem; font-weight: bold;">
+    00:00:00
+</div>
+<p>Segera checkout sebelum kehabisan</p>
+</div>
+<div class="boxtombol">
+    <button>ORDER SEKARANG</button>
+</div>
 
     <div class="navbar">
-        <a href="index.html" class="logo">BORTEA</a>
+        <a href="index.html" class="logo">RMA</a>
 
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -328,36 +395,36 @@
     <div class="products-row">
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/pegasus-42-road-running-shoes-KaUtoqGX/IB1873-702"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/935d489c-7819-4a65-ab22-7c2c68b45a7f/AIR+ZOOM+PEGASUS+42.png"></div>
             <div class="card-info">
-                <h3>Bortea Air Boost</h3>
+                <h3>RMA Air Boost</h3>
                 <p>Men's Running Shoes</p>
                 <div class="price">$120.00</div>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/pegasus-42-road-running-shoes-KaUtoqGX/IB1873-003"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/60f3e594-5957-4e09-b665-01c421845f99/AIR+ZOOM+PEGASUS+42.png"></div>
             <div class="card-info">
-                <h3>Bortea Flex Pro</h3>
+                <h3>RMA Flex Pro</h3>
                 <p>Women's Training Shoes</p>
                 <div class="price">$110.00</div>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/pegasus-42-road-running-shoes-kSuIou0S/IR1228-001"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/660e4298-b124-44fb-b506-23c406ec8641/AIR+ZOOM+PEGASUS+42+WIDE.png"></div>
             <div class="card-info">
-                <h3>Bortea Speed X</h3>
+                <h3>RMA Speed X</h3>
                 <p>Unisex Running Shoes</p>
                 <div class="price">$135.00</div>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/pegasus-42-road-running-shoes-KaUtoqGX/IB1873-102"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/cd18da5d-8d0a-4c28-a503-6403b404714c/AIR+ZOOM+PEGASUS+42.png"></div>
             <div class="card-info">
-                <h3>Bortea Urban Walk</h3>
+                <h3>RMA Urban Walk</h3>
                 <p>Lifestyle Shoes</p>
                 <div class="price">$95.00</div>
             </div>
@@ -367,7 +434,7 @@
 
     <div class="banner">
         <h2>New Arrivals Are Here</h2>
-        <p>Don't miss the latest drops from Bortea. Limited stock available.</p>
+        <p>Don't miss the latest drops from RMA. Limited stock available. </p>
         <a href="product.html">Explore All</a>
     </div>
 
@@ -376,36 +443,36 @@
     <div class="products-row2">
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/tech-helios-dri-fit-short-sleeve-top-peG2dCJf/II2351-010"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8e3e3640-6554-4fd8-8968-edef98f5c2e3/AS+M+NK+UV+TECH+HELIOS+SUN+SS.png"></div>
             <div class="card-info">
-                <h3>Bortea Dri-Fit Tee</h3>
+                <h3>RMA Dri-Fit Tee</h3>
                 <p>Men's Training Top</p>
                 <div class="price">$40.00</div>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/tech-helios-dri-fit-long-sleeve-shell-t9uXfeKO/IF0904-010"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/9ed230ba-7520-4c53-87de-b0bec6b1b8e6/AS+M+NK+UV+TECH+LS+HELIOS+SUN.png"></div>
             <div class="card-info">
-                <h3>Bortea Zip Hoodie</h3>
+                <h3>RMA Zip Hoodie</h3>
                 <p>Women's Hoodie</p>
                 <div class="price">$75.00</div>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/stride-dri-fit-18cm-briefs-lined-running-shorts-91MBr3eT/IF2047-084"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/f55949ee-a32e-4eb4-ae90-b49d2f9d37d5/AS+M+NK+DF+STRIDE+7IN+BF+SHORT.png"></div>
             <div class="card-info">
-                <h3>Bortea Run Shorts</h3>
+                <h3>RMA Run Shorts</h3>
                 <p>Men's Shorts</p>
                 <div class="price">$35.00</div>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/everyday-elevated-ankle-socks-xVXn8mcN/HQ8030-901"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5459befa-6df0-4b7c-9379-2e3db3dbdc4f/U+NK+ED+ELVD+ANK+3P+-+144.png"></div>
             <div class="card-info">
-                <h3>Bortea Grip Socks</h3>
+                <h3>RMA Grip Socks</h3>
                 <p>Unisex Sport Socks</p>
                 <div class="price">$15.00</div>
             </div>
@@ -471,9 +538,34 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 Bortea. All Rights Reserved.</p>
+            <p>© 2026 RMA. All Rights Reserved.</p>
         </div>
     </div>
-
+</section>
 </body>
+<script>
+    let targetTime = new Date().getTime() + 1 * 60 * 60 * 1000;
+
+    function updateTimer() {
+        let now = new Date().getTime();
+        let distance = targetTime - now;
+
+        let hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60 )) / 1000);
+
+        document.getElementById("timerpromo").innerHTML =
+        '${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}';
+
+        if (distance < 0 ) {
+            clearInterval(timerInterval);
+            document.getElementById("timerpromo").innerHTML = "PROMO SELESAI";
+        }
+    }
+
+    let timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
 </html>
