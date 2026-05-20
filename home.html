@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bortea</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: black;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar .nav-links li a {
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .nav-links li a:hover {
+            color: gray;
+        }
+
+        .navbar .nav-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .navbar .nav-right a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+        }
+
+        .navbar .nav-right a:hover {
+            color: gray;
+        }
+
+        .hero {
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 900;
+            color: black;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .hero a {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            padding: 14px 35px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+
+        .hero a:hover {
+            background-color: #333;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: black;
+            padding: 40px 30px 20px 30px;
+        }
+        
+        .products-row {
+            display: flex;
+            gap: 20px;
+            padding: 0px 30px 40px 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #f5f5f5;
+            width: 280px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background-color: #e8e8e8;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card .card-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .card .card-info {
+            padding: 15px;
+        }
+
+        .card .card-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .card .card-info p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .card .card-info .price {
+            font-size: 15px;
+            font-weight: 600;
+            color: black;
+            margin-top: 8px;
+        }
+
+        .products-row2 {
+            display: flex;
+            gap: 20px;
+            padding: 0px 30px 40px 30px;
+            flex-wrap: wrap;
+        }
+
+        .banner {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin: 20px 30px;
+            border-radius: 10px;
+        }
+
+        .banner h2 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .banner p {
+            font-size: 16px;
+            color: #aaa;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .banner a {
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+
+        .banner a:hover {
+            background-color: #ddd;
+        }
+
+        .categories {
+            display: flex;
+            gap: 20px;
+            padding: 20px 30px 40px 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-box {
+            background-color: #f5f5f5;
+            flex: 1;
+            min-width: 200px;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .category-box:hover {
+            background-color: #e8e8e8;
+        }
+
+        .category-box h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .category-box p {
+            font-size: 13px;
+            color: #777;
+            margin-top: 6px;
+        }
+
+        .category-box a {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: black;
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 50px 30px 30px 30px;
+            margin-top: 40px;
+        }
+
+        .footer .footer-columns {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer .footer-col ul {
+            list-style: none;
+        }
+
+        .footer .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer .footer-col ul li a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="home.html" class="logo">BORTEA</a>
+
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="appare.html">Apparel</a></li>
+            <li><a href="accessories.html">Accessories</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <a href="#">Search</a>
+            <a href="#">Favorites</a>
+            <a href="#">Cart (0)</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Just Move.</h1>
+        <p>New collection. New season. Built for every athlete.</p>
+        <a href="product.html">Shop Now</a>
+    </div>
+
+    <div class="section-title">Featured Products</div>
+
+    <div class="products-row">
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/pegasus-42-road-running-shoes-KaUtoqGX/IB1873-702"></div>
+            <div class="card-info">
+                <h3>Bortea Air Boost</h3>
+                <p>Men's Running Shoes</p>
+                <div class="price">$120.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/pegasus-42-road-running-shoes-KaUtoqGX/IB1873-003"></div>
+            <div class="card-info">
+                <h3>Bortea Flex Pro</h3>
+                <p>Women's Training Shoes</p>
+                <div class="price">$110.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/pegasus-42-road-running-shoes-kSuIou0S/IR1228-001"></div>
+            <div class="card-info">
+                <h3>Bortea Speed X</h3>
+                <p>Unisex Running Shoes</p>
+                <div class="price">$135.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/pegasus-42-road-running-shoes-KaUtoqGX/IB1873-102"></div>
+            <div class="card-info">
+                <h3>Bortea Urban Walk</h3>
+                <p>Lifestyle Shoes</p>
+                <div class="price">$95.00</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="banner">
+        <h2>New Arrivals Are Here</h2>
+        <p>Don't miss the latest drops from Bortea. Limited stock available.</p>
+        <a href="product.html">Explore All</a>
+    </div>
+
+    <div class="section-title">New This Week</div>
+
+    <div class="products-row2">
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/tech-helios-dri-fit-short-sleeve-top-peG2dCJf/II2351-010"></div>
+            <div class="card-info">
+                <h3>Bortea Dri-Fit Tee</h3>
+                <p>Men's Training Top</p>
+                <div class="price">$40.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/tech-helios-dri-fit-long-sleeve-shell-t9uXfeKO/IF0904-010"></div>
+            <div class="card-info">
+                <h3>Bortea Zip Hoodie</h3>
+                <p>Women's Hoodie</p>
+                <div class="price">$75.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/stride-dri-fit-18cm-briefs-lined-running-shorts-91MBr3eT/IF2047-084"></div>
+            <div class="card-info">
+                <h3>Bortea Run Shorts</h3>
+                <p>Men's Shorts</p>
+                <div class="price">$35.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://www.nike.com/my/t/everyday-elevated-ankle-socks-xVXn8mcN/HQ8030-901"></div>
+            <div class="card-info">
+                <h3>Bortea Grip Socks</h3>
+                <p>Unisex Sport Socks</p>
+                <div class="price">$15.00</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section-title">Shop by Category</div>
+
+    <div class="categories">
+
+        <div class="category-box">
+            <h3>Shoes</h3>
+            <p>Running, training, lifestyle</p>
+            <a href="product.html">Shop Shoes</a>
+        </div>
+
+        <div class="category-box">
+            <h3>Apparel</h3>
+            <p>Tops, bottoms, hoodies</p>
+            <a href="appare.html">Shop Apparel</a>
+        </div>
+
+        <div class="category-box">
+            <h3>Accessories</h3>
+            <p>Bags, socks, caps</p>
+            <a href="accessories.html">Shop Accessories</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="footer-columns">
+
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="product.html">All Products</a></li>
+                    <li><a href="appare.html">Apparel</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Bortea. All Rights Reserved.</p>
+        </div>
+    </div>
+
+</body>
+</html>
