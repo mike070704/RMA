@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>RMA</title>
     <style>
@@ -12,19 +11,13 @@
         body {
             font-family: Arial, sans-serif;
             background-color: white;
-        }
-
-        #modalpromo {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            left: 0;
-            top: 0;
             width: 100dvw;
             height: 100dvh;
-            background-color: rgba(28, 28, 28, 0.7);
+            margin: 0px;
+            padding: 10px;
         }
 
+        
         .navbar {
             background-color: white;
             padding: 15px 30px;
@@ -116,7 +109,7 @@
             color: black;
             padding: 40px 30px 20px 30px;
         }
-
+        
         .products-row {
             display: flex;
             gap: 20px;
@@ -308,55 +301,10 @@
             font-size: 12px;
             color: #777;
         }
-
-        .float-container {
-            background-color: #333;
-            width: 30%;
-            height: 40%;
-            float: right;
-        }
     </style>
 </head>
-
 <body>
-<div id="modalpromo">
-    <div 
-    style="
-    background-color: white;
-    margin: 15% auto;
-    padding: 30px;
-    width: 30dvw;
-    text-align: center;
-    border-radius: 15px;
-    position: relative;
-    "
-    >
-    <span 
-    onclick="closePromo()"
-    style="
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    ">&times;</span>
-<h2 style="color: orange;">KHUSUS HARI INI!!!</h2>
-<p>
-    Gunakan kode <b>BARU 20</b> untuk diskon 20% pada pembelian pertama Anda.
-</p>
-<button onclick="closePromo()"
-style="
-background: orange;
-color: white;
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-cursor: pointer;
-">
-Ambil diskon
-</button>
-    </div>
-</div>
+
     <div class="navbar">
         <a href="index.html" class="logo">RMA</a>
 
@@ -375,18 +323,130 @@ Ambil diskon
         </div>
     </div>
 
-    <div class="hero">
-        <h1>Just Move.</h1>
-        <p>New collection. New season. Built for every athlete.</p>
 
-        <p>Selamat datang di apparel store kami. kami menghadirkan berbagai koleksi fashion berkualitas dengan design
-            modern, nyaman digunakan, dan mengkuti tren masa kini. Dengan perpaduan material premium dan konsep
-            streetwear contemporary, kami berkomitmen memberikan produk terbaik untuk menunjang penampilan dan
-            kepercayaan diri anda.</p>
-        <a href="product.html">Shop Now</a>
-        <script>
+    <div class="section-title">Featured Products</div>
 
-        </script>
+    <div class="products-row">
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/935d489c-7819-4a65-ab22-7c2c68b45a7f/AIR+ZOOM+PEGASUS+42.png"></div>
+            <div class="card-info">
+                <h3>RMA Air Boost</h3>
+                <p>Men's Running Shoes</p>
+                <div class="price">$120.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/60f3e594-5957-4e09-b665-01c421845f99/AIR+ZOOM+PEGASUS+42.png"></div>
+            <div class="card-info">
+                <h3>RMA Flex Pro</h3>
+                <p>Women's Training Shoes</p>
+                <div class="price">$110.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/660e4298-b124-44fb-b506-23c406ec8641/AIR+ZOOM+PEGASUS+42+WIDE.png"></div>
+            <div class="card-info">
+                <h3>RMA Speed X</h3>
+                <p>Unisex Running Shoes</p>
+                <div class="price">$135.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/cd18da5d-8d0a-4c28-a503-6403b404714c/AIR+ZOOM+PEGASUS+42.png"></div>
+            <div class="card-info">
+                <h3>RMA Urban Walk</h3>
+                <p>Lifestyle Shoes</p>
+                <div class="price">$95.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/dc2c0391-b550-4bce-9d56-caad950ba7ee/AIR+MAX+90.png"></div>
+            <div class="card-info">
+                <h3>Nike Airmax 90 'Tiempo'</h3>
+                <p>Lifestyle Shoes</p>
+                <div class="price">$95.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8ef9276f-bda1-45fd-9007-6f77bacc8269/AIR+FORCE+1+LOW+PROTRO.png"></div>
+            <div class="card-info">
+                <h3>Nike Air Force 1 Low Protro</h3>
+                <p>Lifestyle Shoes</p>
+                <div class="price">$85.00</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <h2>New Arrivals Are Here</h2>
+        <p>Don't miss the latest drops from RMA. Limited stock available. </p>
+        <a href="product.html">Explore All</a>
+    </div>
+
+    <div class="section-title">New This Week</div>
+
+    <div class="products-row2">
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8e3e3640-6554-4fd8-8968-edef98f5c2e3/AS+M+NK+UV+TECH+HELIOS+SUN+SS.png"></div>
+            <div class="card-info">
+                <h3>RMA Dri-Fit Tee</h3>
+                <p>Men's Training Top</p>
+                <div class="price">$40.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/9ed230ba-7520-4c53-87de-b0bec6b1b8e6/AS+M+NK+UV+TECH+LS+HELIOS+SUN.png"></div>
+            <div class="card-info">
+                <h3>RMA Zip Hoodie</h3>
+                <p>Women's Hoodie</p>
+                <div class="price">$75.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/f55949ee-a32e-4eb4-ae90-b49d2f9d37d5/AS+M+NK+DF+STRIDE+7IN+BF+SHORT.png"></div>
+            <div class="card-info">
+                <h3>RMA Run Shorts</h3>
+                <p>Men's Shorts</p>
+                <div class="price">$35.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5459befa-6df0-4b7c-9379-2e3db3dbdc4f/U+NK+ED+ELVD+ANK+3P+-+144.png"></div>
+            <div class="card-info">
+                <h3>RMA Grip Socks</h3>
+                <p>Unisex Sport Socks</p>
+                <div class="price">$15.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/8bec32d54ae74a798b325f0edf3d6d69_9366/TOPI_BASEBALL_ARSENAL_FC_Merah_KR0531_02_standard_hover.jpg"></div>
+            <div class="card-info">
+                <h3>RMA ARSENAL FC BASEBALL CAPS</h3>
+                <p>Unisex Sport Caps</p>
+                <div class="price">$30.00</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c93145c1-185d-4437-9610-1e2d6c66e456/U+NK+DF+CLUB+CAP+S+CB+P.png"></div>
+            <div class="card-info">
+                <h3>Nike Dri-FIT Club</h3>
+                <p>Unisex Sport Caps</p>
+                <div class="price">$17.00</div>
+            </div>
+        </div>
+
 
     </div>
 
@@ -454,14 +514,7 @@ Ambil diskon
             <p>© 2026 RMA. All Rights Reserved.</p>
         </div>
     </div>
+</section>
 </body>
-<script>
-    setTimeout(() => {
-        document.getElementById("modalpromo").style.display = "block";
-    }, 5000);
-    
-    function closePromo() {
-        document.getElementById("modalpromo").style.display = "none";
-    }
-</script>
+
 </html>
