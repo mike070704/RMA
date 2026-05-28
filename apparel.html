@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bortea - Apparel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: black;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar .nav-links li a {
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .nav-links li a:hover {
+            color: gray;
+        }
+
+        .navbar .nav-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .navbar .nav-right a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+        }
+
+        .navbar .nav-right a:hover {
+            color: gray;
+        }
+
+        .page-header {
+            background-color: #f5f5f5;
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: black;
+            padding: 35px 30px 15px 30px;
+        }
+
+        .products-grid {
+            display: flex;
+            gap: 20px;
+            padding: 0px 30px 40px 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #f5f5f5;
+            width: 260px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background-color: #e8e8e8;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card .card-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .card .card-info {
+            padding: 15px;
+        }
+
+        .card .card-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .card .card-info p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .card .card-info .price {
+            font-size: 15px;
+            font-weight: 600;
+            color: black;
+            margin-top: 8px;
+        }
+
+        .card .card-info .colors {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .card .card-info .color-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .card .card-info .add-btn {
+            display: block;
+            width: 100%;
+            margin-top: 12px;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .card .card-info .add-btn:hover {
+            background-color: #333;
+        }
+
+        .card .card-info .badge {
+            display: inline-block;
+            background-color: green;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 5px;
+            margin-top: 6px;
+        }
+
+        .banner {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 20px 30px;
+            border-radius: 10px;
+        }
+
+        .banner h2 {
+            font-size: 36px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .banner p {
+            font-size: 15px;
+            color: #aaa;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .banner a {
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+
+        .banner a:hover {
+            background-color: #ddd;
+        }
+
+        .size-guide {
+            background-color: #f5f5f5;
+            padding: 30px;
+            margin: 20px 30px;
+            border-radius: 10px;
+        }
+
+        .size-guide h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .size-guide table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .size-guide table th {
+            background-color: black;
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .size-guide table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+            color: #444;
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 50px 30px 30px 30px;
+            margin-top: 40px;
+        }
+
+        .footer .footer-columns {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer .footer-col ul {
+            list-style: none;
+        }
+
+        .footer .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer .footer-col ul li a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="home.html" class="logo">BORTEA</a>
+
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="apparel.html">Apparel</a></li>
+            <li><a href="accessories.html">Accessories</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <a href="#">Search</a>
+            <a href="#">Favorites</a>
+            <a href="#">Cart (0)</a>
+        </div>
+    </div>
+
+    <div class="section-title">Tops</div>
+
+    <div class="products-grid">
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b561e7aa-5381-44d2-b1e4-3935912c83b6/AS+M+NKCT+DF+SLAM+SHORT+RG.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Dri-Fit Tee</h3>
+                <p>Men's Training Top</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: black;"></div>
+                    <div class="color-dot" style="background-color: white;"></div>
+                    <div class="color-dot" style="background-color: gray;"></div>
+                </div>
+                <div class="price">$40.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/58dc9f6e-d9a6-4130-9b2c-5c59d24c7039/AS+M+NKCT+DF+SLAM+SHORT+RG.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Mesh Training Top</h3>
+                <p>Women's Training Top</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: pink;"></div>
+                    <div class="color-dot" style="background-color: black;"></div>
+                    <div class="color-dot" style="background-color: purple;"></div>
+                </div>
+                <div class="price">$38.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8a5271bc-950f-4bd6-8295-44c07dba5b6d/SCCP+M+NK+DFADV+JSY+SS+MTCH+HM.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Long Sleeve</h3>
+                <p>Unisex Long Sleeve Shirt</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: navy;"></div>
+                    <div class="color-dot" style="background-color: black;"></div>
+                </div>
+                <div class="price">$48.00</div>
+                <span class="badge">SALE</span>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/2f2e2203-98b0-43a8-9305-3ce60e791b5e/AS+M+NK+DF+UV+HYVERSE+SS+MOP2.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Logo Tee</h3>
+                <p>Unisex Lifestyle Tee</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: white; border: 1px solid #999;"></div>
+                    <div class="color-dot" style="background-color: black;"></div>
+                    <div class="color-dot" style="background-color: red;"></div>
+                </div>
+                <div class="price">$35.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="section-title">Hoodies & Jackets</div>
+
+    <div class="products-grid">
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/543babe9-f8b7-4356-85d5-9833c5ede24a/AS+W+NSW+PHNX+FLC+OOS+CREW.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Zip Hoodie</h3>
+                <p>Women's Hoodie</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: black;"></div>
+                    <div class="color-dot" style="background-color: gray;"></div>
+                </div>
+                <div class="price">$75.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8d27b6f7-6135-4ec7-9e27-231e86111f5e/AS+M+NK+CLUB+FT+OS+PO+HOODIE.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Pullover Hoodie</h3>
+                <p>Men's Hoodie</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: black;"></div>
+                    <div class="color-dot" style="background-color: darkgreen;"></div>
+                    <div class="color-dot" style="background-color: navy;"></div>
+                </div>
+                <div class="price">$70.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b9212004-3b2c-4198-9933-5f614131e6e3/M+J+FLT+CLB+KNIT+FZ.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Wind Jacket</h3>
+                <p>Unisex Running Jacket</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: blue;"></div>
+                    <div class="color-dot" style="background-color: black;"></div>
+                </div>
+                <div class="price">$90.00</div>
+                <span class="badge">NEW</span>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="banner">
+        <h2>New Season. New Fits.</h2>
+        <p>Fresh apparel drops every week. Stay updated.</p>
+        <a href="product.html">See All Products</a>
+    </div>
+
+    <div class="section-title">Bottoms</div>
+
+    <div class="products-grid">
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/6fe9599b-623f-4fb6-9fed-3e0b5b01886d/AS+M+NK+DF+STRIDE+7IN+BF+SHRT.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Run Shorts</h3>
+                <p>Men's Shorts</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: black;"></div>
+                    <div class="color-dot" style="background-color: navy;"></div>
+                    <div class="color-dot" style="background-color: gray;"></div>
+                </div>
+                <div class="price">$35.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/f0b0831d-cf82-4f9a-9f41-e3e2de1272a9/AS+W+NK+ARSWFT+DFADVMR3INSHORT.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Yoga Leggings</h3>
+                <p>Women's Leggings</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: black;"></div>
+                    <div class="color-dot" style="background-color: purple;"></div>
+                </div>
+                <div class="price">$55.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/4d21c56d-431b-4f05-8470-4aab2790670d/AS+M+NK+DFADV+AROSWFT+4INBF+SH.png" alt=""></div>
+            <div class="card-info">
+                <h3>Bortea Track Pants</h3>
+                <p>Unisex Track Pants</p>
+                <div class="colors">
+                    <div class="color-dot" style="background-color: black;"></div>
+                    <div class="color-dot" style="background-color: gray;"></div>
+                    <div class="color-dot" style="background-color: navy;"></div>
+                </div>
+                <div class="price">$60.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="size-guide">
+        <h3>Size Guide</h3>
+        <table>
+            <tr>
+                <th>Size</th>
+                <th>Chest (inches)</th>
+                <th>Waist (inches)</th>
+            </tr>
+            <tr>
+                <td>XS</td>
+                <td>32 - 34</td>
+                <td>26 - 28</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>34 - 36</td>
+                <td>28 - 30</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>38 - 40</td>
+                <td>32 - 34</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>42 - 44</td>
+                <td>36 - 38</td>
+            </tr>
+            <tr>
+                <td>XL</td>
+                <td>46 - 48</td>
+                <td>40 - 42</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <div class="footer-columns">
+
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="product.html">All Products</a></li>
+                    <li><a href="apparel.html">Apparel</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 RMA. All Rights Reserved.</p>
+        </div>
+    </div>
+
+</body>
+</html>
