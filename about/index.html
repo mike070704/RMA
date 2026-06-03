@@ -1,11 +1,464 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RMA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        #modalpromo {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100dvw;
+            height: 100dvh;
+            background-color: rgba(28, 28, 28, 0.7);
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: black;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar .nav-links li a {
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .nav-links li a:hover {
+            color: gray;
+        }
+
+        .navbar .nav-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .navbar .nav-right a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+        }
+
+        .navbar .nav-right a:hover {
+            color: gray;
+        }
+
+        .hero {
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 900;
+            color: black;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .hero a {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            padding: 14px 35px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+
+        .hero a:hover {
+            background-color: #333;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: black;
+            padding: 40px 30px 20px 30px;
+        }
+
+        .products-row {
+            display: flex;
+            gap: 20px;
+            padding: 0px 30px 40px 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #f5f5f5;
+            width: 280px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background-color: #e8e8e8;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card .card-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .card .card-info {
+            padding: 15px;
+        }
+
+        .card .card-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .card .card-info p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .card .card-info .price {
+            font-size: 15px;
+            font-weight: 600;
+            color: black;
+            margin-top: 8px;
+        }
+
+        .products-row2 {
+            display: flex;
+            gap: 20px;
+            padding: 0px 30px 40px 30px;
+            flex-wrap: wrap;
+        }
+
+        .banner {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin: 20px 30px;
+            border-radius: 10px;
+        }
+
+        .banner h2 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .banner p {
+            font-size: 16px;
+            color: #aaa;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .banner a {
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+
+        .banner a:hover {
+            background-color: #ddd;
+        }
+
+        .categories {
+            display: flex;
+            gap: 20px;
+            padding: 20px 30px 40px 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-box {
+            background-color: #f5f5f5;
+            flex: 1;
+            min-width: 200px;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .category-box:hover {
+            background-color: #e8e8e8;
+        }
+
+        .category-box h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .category-box p {
+            font-size: 13px;
+            color: #777;
+            margin-top: 6px;
+        }
+
+        .category-box a {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: black;
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 50px 30px 30px 30px;
+            margin-top: 40px;
+        }
+
+        .footer .footer-columns {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer .footer-col ul {
+            list-style: none;
+        }
+
+        .footer .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer .footer-col ul li a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .float-container {
+            background-color: #333;
+            width: 30%;
+            height: 40%;
+            float: right;
+        }
+    </style>
 </head>
+
 <body>
-    CERITA PERTAMA KALI DI BENTUK
+<div id="modalpromo">
+    <div 
+    style="
+    background-color: white;
+    margin: 15% auto;
+    padding: 30px;
+    width: 30dvw;
+    text-align: center;
+    border-radius: 15px;
+    position: relative;
+    "
+    >
+    <span 
+    onclick="closePromo()"
+    style="
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    ">&times;</span>
+<!-- <h2 style="color: orange;">KHUSUS HARI INI!!!</h2>
+<p>
+    Gunakan kode <b>BARU 20</b> untuk diskon 20% pada pembelian pertama Anda.
+</p>
+<button onclick="closePromo()"
+style="
+background: orange;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+">
+Ambil diskon
+</button> -->
+    </div>
+</div>
+    <div class="navbar">
+        <a href="index.html" class="logo">RMA</a>
+
+        <ul class="nav-links">
+            <li><a href="../">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/product/">Products</a></li>
+            <li><a href="/apparel/">Apparel</a></li>
+            <li><a href="/accessories/">Accessories</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <a href="#">Search</a>
+            <a href="#">Favorites</a>
+            <a href="#">Cart (0)</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Just Move.</h1>
+        <p>New collection. New season. Built for every athlete.</p>
+
+        <p>Selamat datang di apparel store kami. kami menghadirkan berbagai koleksi fashion berkualitas dengan design
+            modern, nyaman digunakan, dan mengkuti tren masa kini. Dengan perpaduan material premium dan konsep
+            streetwear contemporary, kami berkomitmen memberikan produk terbaik untuk menunjang penampilan dan
+            kepercayaan diri anda.</p>
+        <a href="/product/">Shop Now</a>
+        
+    </div>
+
+    <div class="section-title">Shop by Category</div>
+
+    <div class="categories">
+
+        <div class="category-box">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/8567c992777717.Y3JvcCwxMzQyLDEwNTAsMTksMA.jpg" height="200px" width="auto">
+            <h3>Shoes</h3>
+            <p>Running, training, lifestyle</p>
+            <a href="/product/">Shop Shoes</a>
+        </div>
+
+        <div class="category-box">
+            <img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8e3e3640-6554-4fd8-8968-edef98f5c2e3/AS+M+NK+UV+TECH+HELIOS+SUN+SS.png" height="200px" width="auto">
+            <h3>Apparel</h3>
+            <p>Tops, bottoms, hoodies</p>
+            <a href="/apparel/">Shop Apparel</a>
+        </div>
+
+        <div class="category-box">
+            <img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/c0fb05f1-7995-4d0e-81e1-189e67fbeb19/Nike+Tailwind+12.png" height="200px" width="auto">
+            <h3>Accessories</h3>
+            <p>Bags, socks, caps</p>
+            <a href="/accessories/">Shop Accessories</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="footer-columns">
+
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="product.html">All Products</a></li>
+                    <li><a href="apparel.html">Apparel</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 RMA. All Rights Reserved.</p>
+        </div>
+    </div>
 </body>
+<!-- <script>
+    setTimeout(() => {
+        document.getElementById("modalpromo").style.display = "block";
+    }, 5000);
+    
+    function closePromo() {
+        document.getElementById("modalpromo").style.display = "none";
+    }
+</script> -->
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RMA</title>
+    <title>Bortea - Accessories</title>
     <style>
         * {
             margin: 0;
@@ -11,13 +11,8 @@
         body {
             font-family: Arial, sans-serif;
             background-color: white;
-            width: 100dvw;
-            height: 100dvh;
-            margin: 0px;
-            padding: 10px;
         }
 
-        
         .navbar {
             background-color: white;
             padding: 15px 30px;
@@ -68,49 +63,34 @@
             color: gray;
         }
 
-        .hero {
-            background-color: #f5f5f5;
+        .page-header {
+            background-color: black;
+            color: white;
+            padding: 70px 30px;
             text-align: center;
-            padding: 100px 20px;
         }
 
-        .hero h1 {
-            font-size: 60px;
+        .page-header h1 {
+            font-size: 52px;
             font-weight: 900;
-            color: black;
             text-transform: uppercase;
             letter-spacing: -2px;
         }
 
-        .hero p {
-            font-size: 18px;
-            color: #555;
-            margin-top: 15px;
-            margin-bottom: 30px;
-        }
-
-        .hero a {
-            background-color: black;
-            color: white;
-            text-decoration: none;
-            padding: 14px 35px;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 30px;
-        }
-
-        .hero a:hover {
-            background-color: #333;
+        .page-header p {
+            font-size: 16px;
+            color: #aaa;
+            margin-top: 10px;
         }
 
         .section-title {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 700;
             color: black;
-            padding: 40px 30px 20px 30px;
+            padding: 35px 30px 15px 30px;
         }
-        
-        .products-row {
+
+        .products-grid {
             display: flex;
             gap: 20px;
             padding: 0px 30px 40px 30px;
@@ -119,7 +99,7 @@
 
         .card {
             background-color: #f5f5f5;
-            width: 280px;
+            width: 260px;
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
@@ -135,6 +115,7 @@
             object-fit: cover;
             background-color: #ddd;
         }
+
 
         .card .card-img-placeholder {
             width: 100%;
@@ -169,90 +150,106 @@
             margin-top: 8px;
         }
 
-        .products-row2 {
-            display: flex;
-            gap: 20px;
-            padding: 0px 30px 40px 30px;
-            flex-wrap: wrap;
-        }
-
-        .banner {
+        .card .card-info .add-btn {
+            display: block;
+            width: 100%;
+            margin-top: 12px;
+            padding: 10px;
             background-color: black;
             color: white;
             text-align: center;
-            padding: 80px 20px;
-            margin: 20px 30px;
-            border-radius: 10px;
-        }
-
-        .banner h2 {
-            font-size: 42px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        .banner p {
-            font-size: 16px;
-            color: #aaa;
-            margin-top: 10px;
-            margin-bottom: 25px;
-        }
-
-        .banner a {
-            background-color: white;
-            color: black;
-            text-decoration: none;
-            padding: 12px 30px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            border-radius: 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
         }
 
-        .banner a:hover {
-            background-color: #ddd;
+        .card .card-info .add-btn:hover {
+            background-color: #333;
         }
 
-        .categories {
+        .card .card-info .badge {
+            display: inline-block;
+            background-color: orange;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 5px;
+            margin-top: 6px;
+        }
+
+        .promo-boxes {
             display: flex;
             gap: 20px;
             padding: 20px 30px 40px 30px;
             flex-wrap: wrap;
         }
 
-        .category-box {
-            background-color: #f5f5f5;
+        .promo-box {
             flex: 1;
-            min-width: 200px;
-            padding: 40px 20px;
-            text-align: center;
+            min-width: 250px;
+            padding: 40px 30px;
             border-radius: 10px;
-            cursor: pointer;
+            text-align: center;
         }
 
-        .category-box:hover {
-            background-color: #e8e8e8;
+        .promo-box.dark {
+            background-color: black;
+            color: white;
         }
 
-        .category-box h3 {
-            font-size: 18px;
-            font-weight: 700;
+        .promo-box.light {
+            background-color: #f5f5f5;
             color: black;
         }
 
-        .category-box p {
-            font-size: 13px;
-            color: #777;
-            margin-top: 6px;
+        .promo-box h3 {
+            font-size: 22px;
+            font-weight: 700;
         }
 
-        .category-box a {
+        .promo-box p {
+            font-size: 14px;
+            margin-top: 8px;
+            opacity: 0.7;
+        }
+
+        .promo-box a {
             display: inline-block;
-            margin-top: 12px;
+            margin-top: 15px;
             font-size: 13px;
             font-weight: 600;
-            color: black;
             text-decoration: underline;
+        }
+
+        .promo-box.dark a {
+            color: white;
+        }
+
+        .promo-box.light a {
+            color: black;
+        }
+
+        .bundle-section {
+            background-color: #f5f5f5;
+            padding: 40px 30px;
+            margin: 20px 30px;
+            border-radius: 10px;
+        }
+
+        .bundle-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .bundle-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .footer {
@@ -275,6 +272,37 @@
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
+
+         .categories {
+            display: flex;
+            gap: 20px;
+            padding: 20px 30px 40px 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-box {
+            background-color: #f5f5f5;
+            flex: 1;
+            min-width: 200px;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .category-box a {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: black;
+            text-decoration: underline;
+        }
+
+        .category-box:hover {
+            background-color: #e8e8e8;
+        }
+
 
         .footer .footer-col ul {
             list-style: none;
@@ -306,7 +334,7 @@
 <body>
 
     <div class="navbar">
-        <a href="index.html" class="logo">RMA</a>
+        <a href="home.html" class="logo">RMA</a>
 
         <ul class="nav-links">
             <li><a href="../">Home</a></li>
@@ -323,130 +351,188 @@
         </div>
     </div>
 
-
-    <div class="section-title">Featured Products</div>
-
-    <div class="products-row">
-
-        <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/935d489c-7819-4a65-ab22-7c2c68b45a7f/AIR+ZOOM+PEGASUS+42.png"></div>
-            <div class="card-info">
-                <h3>RMA Air Boost</h3>
-                <p>Men's Running Shoes</p>
-                <div class="price">$120.00</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/60f3e594-5957-4e09-b665-01c421845f99/AIR+ZOOM+PEGASUS+42.png"></div>
-            <div class="card-info">
-                <h3>RMA Flex Pro</h3>
-                <p>Women's Training Shoes</p>
-                <div class="price">$110.00</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/660e4298-b124-44fb-b506-23c406ec8641/AIR+ZOOM+PEGASUS+42+WIDE.png"></div>
-            <div class="card-info">
-                <h3>RMA Speed X</h3>
-                <p>Unisex Running Shoes</p>
-                <div class="price">$135.00</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/cd18da5d-8d0a-4c28-a503-6403b404714c/AIR+ZOOM+PEGASUS+42.png"></div>
-            <div class="card-info">
-                <h3>RMA Urban Walk</h3>
-                <p>Lifestyle Shoes</p>
-                <div class="price">$95.00</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/dc2c0391-b550-4bce-9d56-caad950ba7ee/AIR+MAX+90.png"></div>
-            <div class="card-info">
-                <h3>Nike Airmax 90 'Tiempo'</h3>
-                <p>Lifestyle Shoes</p>
-                <div class="price">$95.00</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8ef9276f-bda1-45fd-9007-6f77bacc8269/AIR+FORCE+1+LOW+PROTRO.png"></div>
-            <div class="card-info">
-                <h3>Nike Air Force 1 Low Protro</h3>
-                <p>Lifestyle Shoes</p>
-                <div class="price">$85.00</div>
-            </div>
-        </div>
+    <div class="page-header">
+        <h1>Accessories</h1>
+        <p>Complete your look with Bortea accessories.</p>
     </div>
 
-    <div class="banner">
-        <h2>New Arrivals Are Here</h2>
-        <p>Don't miss the latest drops from RMA. Limited stock available. </p>
-        <a href="product.html">Explore All</a>
-    </div>
+    <div class="section-title">Bags & Backpacks</div>
 
-    <div class="section-title">New This Week</div>
-
-    <div class="products-row2">
+    <div class="products-grid">
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8e3e3640-6554-4fd8-8968-edef98f5c2e3/AS+M+NK+UV+TECH+HELIOS+SUN+SS.png"></div>
+            <div class="card-img-placeholder"> <img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/94541c6c-b43a-4509-b5da-71a3b240b9b4/NK+BRSLA+L+DUFF+-+X.png" alt=""></div>
             <div class="card-info">
-                <h3>RMA Dri-Fit Tee</h3>
-                <p>Men's Training Top</p>
-                <div class="price">$40.00</div>
+                <h3>RMA Sports Bag</h3>
+                <p>Unisex Gym Bag — 25L</p>
+                <div class="price">$55.00</div>
+                <button class="add-btn">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/9ed230ba-7520-4c53-87de-b0bec6b1b8e6/AS+M+NK+UV+TECH+LS+HELIOS+SUN.png"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/4444d4b6-89be-47ac-9111-93446672904b/ACG+DAYMAX+BKPK.png" alt=""></div>
             <div class="card-info">
-                <h3>RMA Zip Hoodie</h3>
-                <p>Women's Hoodie</p>
-                <div class="price">$75.00</div>
+                <h3>RMA Trail Backpack</h3>
+                <p>Unisex Backpack — 30L</p>
+                <div class="price">$80.00</div>
+                <span class="badge">POPULAR</span>
+                <button class="add-btn">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/f55949ee-a32e-4eb4-ae90-b49d2f9d37d5/AS+M+NK+DF+STRIDE+7IN+BF+SHORT.png"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/cea9cc5f-ef2a-4b57-85d8-bced4c843521/NK+HERITAGE+CROSSBODY+2.0.png" alt=""></div>
             <div class="card-info">
-                <h3>RMA Run Shorts</h3>
-                <p>Men's Shorts</p>
+                <h3>Bortea Mini Bag</h3>
+                <p>Women's Mini Crossbody</p>
                 <div class="price">$35.00</div>
+                <button class="add-btn">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5459befa-6df0-4b7c-9379-2e3db3dbdc4f/U+NK+ED+ELVD+ANK+3P+-+144.png"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/ada8ddbd-598e-48ce-8421-7eb716da548f/NK+UTILITY+ELITE+BKPK+-+2.0.png" alt=""></div>
             <div class="card-info">
-                <h3>RMA Grip Socks</h3>
-                <p>Unisex Sport Socks</p>
+                <h3>RMA Utility Elite</h3>
+                <p>Large Bag — 40L</p>
+                <div class="price">$65.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="promo-boxes">
+
+        <div class="promo-box dark">
+            <h3>Free Shipping</h3>
+            <p>On orders over $75</p>
+            <a href="#">Learn More</a>
+        </div>
+
+        <div class="promo-box light">
+            <h3>Easy Returns</h3>
+            <p>30-day free returns</p>
+            <a href="#">Learn More</a>
+        </div>
+
+        <div class="promo-box dark">
+            <h3>Member Deals</h3>
+            <p>Sign up for exclusive discounts</p>
+            <a href="#">Join Now</a>
+        </div>
+
+    </div>
+
+    <div class="section-title">Hats & Headwear</div>
+
+    <div class="products-grid">
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/2f59cff5-ddc1-4bbb-94a7-cc43046babd4/U+NK+DF+CLUB+CAP+S+CB+MTFUT+L.png" alt=""></div>
+            <div class="card-info">
+                <h3>RMA Sport Cap</h3>
+                <p>Unisex Cap</p>
+                <div class="price">$28.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c2ce4de4-a2b3-4a83-9a7c-fba9137544e8/U+NK+CLUB+CAP+U+CB+SWSH+L.png" alt=""></div>
+            <div class="card-info">
+                <h3>Run Visor</h3>
+                <p>Unisex Running Visor</p>
+                <div class="price">$22.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5e8ffe5b-32c4-46f1-ad65-a599d4020419/U+J+PEAK+BEANIE+FLT+CLUB.png" alt=""></div>
+            <div class="card-info">
+                <h3>RMA Beanie</h3>
+                <p>Unisex Winter Beanie</p>
+                <div class="price">$25.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section-title">Socks & Essentials</div>
+
+    <div class="products-grid">
+
+        <div class="card">
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/53ef7bd6-ca0e-4f5d-a1e2-16a7533a78b2/U+NK+ELITE+CUSH+CREW+1PR.png" alt=""></div>
+            <div class="card-info">
+                <h3>RMA Elite Socks</h3>
+                <p>Unisex Sport Socks — 3 Pack</p>
                 <div class="price">$15.00</div>
+                <button class="add-btn">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/8bec32d54ae74a798b325f0edf3d6d69_9366/TOPI_BASEBALL_ARSENAL_FC_Merah_KR0531_02_standard_hover.jpg"></div>
+            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8b062041-6b91-4425-93dd-220b8a9e2c58/U+NK+LTWT+RUN+MCRW+1PR+-+200.png" alt=""></div>
             <div class="card-info">
-                <h3>RMA ARSENAL FC BASEBALL CAPS</h3>
-                <p>Unisex Sport Caps</p>
-                <div class="price">$30.00</div>
+                <h3>RMA Running Lightweight Socks</h3>
+                <p>Men's Cushioned Socks — 3 Pack</p>
+                <div class="price">$18.00</div>
+                <button class="add-btn">Add to Cart</button>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-img-placeholder"><img src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c93145c1-185d-4437-9610-1e2d6c66e456/U+NK+DF+CLUB+CAP+S+CB+P.png"></div>
+            <div class="card-img-placeholder"><img src="https://th.bing.com/th/id/OIP.5CJFujzOQDVcW-450MAHrwHaHa?w=180&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt=""></div>
             <div class="card-info">
-                <h3>Nike Dri-FIT Club</h3>
-                <p>Unisex Sport Caps</p>
-                <div class="price">$17.00</div>
+                <h3>RMA Water Bottle</h3>
+                <p>700ml Sports Bottle</p>
+                <div class="price">$20.00</div>
+                <span class="badge">POPULAR</span>
+                <button class="add-btn">Add to Cart</button>
             </div>
         </div>
 
+        <div class="card">
+            <div class="card-img-placeholder"><img src="data:image/webp;base64,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" alt=""></div>
+            <div class="card-info">
+                <h3>RMA Armband</h3>
+                <p>Phone Armband for Running</p>
+                <div class="price">$18.00</div>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bundle-section">
+        <h2>🎁 Popular Bundles</h2>
+        <div class="bundle-cards">
+            
+            <div class="card">
+                <div class="card-img-placeholder"><img src="https://th.bing.com/th/id/OIP.jf118Dr4RryTyDEYXPzXKgHaHa?w=202&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt=""></div>
+                <div class="card-info">
+                    <h3>Runner Starter Pack</h3>
+                    <p>Socks + Water Bottle + Cap</p>
+                    <div class="price">$55.00 (Save $11)</div>
+                    <button class="add-btn">Add Bundle to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-placeholder"><img src="https://th.bing.com/th/id/OIP.wM2QVmmml79P8IQYPeTEqQHaEK?w=323&h=182&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt=""></div>
+                <div class="card-info">
+                    <h3>Gym Essentials Pack</h3>
+                    <p>Gym Bag + Socks + Armband</p>
+                    <div class="price">$80.00 (Save $11)</div>
+                    <button class="add-btn">Add Bundle to Cart</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <div class="section-title">Shop by Category</div>
@@ -476,6 +562,7 @@
 
     </div>
 
+
     <div class="footer">
         <div class="footer-columns">
 
@@ -483,7 +570,7 @@
                 <h4>Products</h4>
                 <ul>
                     <li><a href="product.html">All Products</a></li>
-                    <li><a href="apparel.html">Apparel</a></li>
+                    <li><a href="appare.html">Apparel</a></li>
                     <li><a href="accessories.html">Accessories</a></li>
                 </ul>
             </div>
@@ -510,10 +597,9 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 RMA. All Rights Reserved.</p>
+            <p>© 2024 Bortea. All Rights Reserved.</p>
         </div>
     </div>
-</section>
-</body>
 
+</body>
 </html>
